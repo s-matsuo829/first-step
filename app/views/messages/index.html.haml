@@ -3,9 +3,10 @@
     .title__content 書きなぐり
   .header
     .header__left-box
-      .header__left-box__user-name お疲れ様です。testたん
-    = link_to "" do
-      .header__exit-btn Exit
+      .header__left-box__user-name
+        = "お疲れ様です。" + current_user.name + "さま"
+    = link_to edit_user_path(current_user) do
+      .header__edit-btn Edit
   .wrapper
     .messages
       .message
@@ -22,7 +23,6 @@
         .message__text
           %p.lower-message__content 本文
         .message__space
-        
   .form
     = form_for "", html: {class: "new_message"} do |f|
       .input-box
