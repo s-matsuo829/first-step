@@ -3,28 +3,17 @@
     .title__content 書きなぐり
   .header
     .header__left-box
-      .header__left-box__user-name お疲れ様です。testたん
-    = link_to "" do
-      .header__exit-btn Exit
+      .header__left-box__user-name
+        = "お疲れ様です。" + current_user.name + "さま"
+    = link_to edit_user_path(current_user) do
+      .header__edit-btn Edit
   .wrapper
     .messages
-      .message
-        .message__upper-info
-          .message__upper-info__talker てstたん
-          .message__upper-info__date あの日あの時
-        .message__text
-          %p.lower-message__content 本文
-        .message__space
-      .message
-        .message__upper-info
-          .message__upper-info__talker てstたん
-          .message__upper-info__date あの日あの時
-        .message__text
-          %p.lower-message__content 本文
-        .message__space
-        
+      = render @messages
+      -# - @messages.each do |message|
+        -# = render partial: "message", locals: { message: message }
   .form
-    = form_for "", html: {class: "new_message"} do |f|
+    = form_for (@message), html: {class: "new_message"} do |f|
       .input-box
         = f.text_field :content, placeholder: "今日はどうしたの？", class: "input-box__text"
         %label(class="input-box__image" for="message_image")
