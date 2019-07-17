@@ -9,7 +9,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create(image: message_params[:image], content: message_params[:content], user_id: current_user.id)
     if @message.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json
+      end
     else
       @messages = Message.includes(:user)
       render :index
