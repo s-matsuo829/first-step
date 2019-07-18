@@ -35,7 +35,7 @@
   height: 30px;
   line-height: 30px;
   padding: 0 20px;
-  margin-top: 10px;
+  margin-top: 14px;
   border: solid 1px white;
   position: absolute;
   right: 40px;
@@ -75,11 +75,10 @@
       }
     }
     &__text {
-      margin-left: 5px;
+      margin-left: 10px;
       color: #434a54;
       font-size: 14px;
       margin-bottom: 10px;
-      display: flex;
       text-align:left;
     }
     &__space {
